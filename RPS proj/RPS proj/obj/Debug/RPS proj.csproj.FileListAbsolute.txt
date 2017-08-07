@@ -1,0 +1,6 @@
+C:\Users\young\Desktop\First c# proj\RPS proj\RPS proj\bin\Debug\RPS proj.exe.config
+C:\Users\young\Desktop\First c# proj\RPS proj\RPS proj\bin\Debug\RPS proj.exe
+C:\Users\young\Desktop\First c# proj\RPS proj\RPS proj\bin\Debug\RPS proj.pdb
+C:\Users\young\Desktop\First c# proj\RPS proj\RPS proj\obj\Debug\RPS proj.csprojResolveAssemblyReference.cache
+C:\Users\young\Desktop\First c# proj\RPS proj\RPS proj\obj\Debug\RPS proj.exe
+C:\Users\young\Desktop\First c# proj\RPS proj\RPS proj\obj\Debug\RPS proj.pdb
