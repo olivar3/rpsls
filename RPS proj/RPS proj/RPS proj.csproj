@@ -43,9 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cpu.cs" />
+    <Compile Include="Human.cs" />
     <Compile Include="NewGame.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

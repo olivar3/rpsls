@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace RPS_proj
 {
-    class Human
+    class Human : Player
     {
+        public Human()
+        {
+
+        }
     }
 }

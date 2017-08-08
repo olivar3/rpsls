@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace RPS_proj
 {
-    class Rules
+    public class Rules
     {
+        public Rules()
+        {
+
+        }
+        public void DisplayRules()
+        {
+            Console.WriteLine("The rules to the game are simple, scissor cuts paper, paper covers rock, rock crushes lizard, lizard poisons Spock, Spock smashes scissors, scissors decapitate lizard, lizard eats paper, paper disproves spock, and spock vaporizes rock.");
+        }
+        
     }
 }

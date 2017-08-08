@@ -6,39 +6,112 @@ using System.Threading.Tasks;
 
 namespace RPS_proj
 {
-    class NewGame
+    public class NewGame
     {
-        string rulesAgree;
-        string player1Choice;
-        string player2Choice;
-        
-        private string rules()
+        Rules rules;
+        Player playerOne;
+        Player playerTwo;
+        public NewGame()
         {
-            string yes;
-            string input;
-            Console.WriteLine("The rules to the game are simple, scissor cuts paper, paper covers rock, rock crushes lizard, lizard poisons Spock, Spock smashes scissors, scissors decapitate lizard, lizard eats paper, paper disproves spock, and spock vaporizes rock. Do you understand?");
-            input = Console.ReadLine();
-            if (input == yes)
+            rules = new Rules();
+        }
+        public void getNumberOfPlayers()
+        {
+            Console.WriteLine("How many players, 1 or 2?");
+            int numberOfPlayers = int.Parse(Console.ReadLine());
+            if (numberOfPlayers == 1)
             {
-                return rulesAgree;
+                playerOne = new Human();
+                playerTwo = new Cpu();
+                playerOne.name = getPlayerName();
+                playerTwo.name = getPlayerName();
             }
-            else{
-                Console.WriteLine("Read the rules again");
+            else if (numberOfPlayers == 2)
+            {
+                playerOne = new Human();
+                playerTwo = new Human();
+                playerOne.name = getPlayerName();
+                playerTwo.name = getPlayerName();
+            }
+            else
+            {
+                Console.WriteLine("Please choose 1 or 2");
+                getNumberOfPlayers();
             }
         }
-        public void player1()
+        public string getPlayerName()
         {
-            Console.WriteLine("Enter your choice");
-            player1Choice = Console.ReadLine();
+            Console.WriteLine("Enter player name.");
+            string name = Console.ReadLine();
+            return name;
         }
-        public void player2()
+        public void compareChoices()
         {
-            Console.WriteLine("Rock, Paper, Sissors, Lizard, Spock");
-            player2Choice = Console.ReadLine();
-        }
-        public void Winner(player1Choice, player2Choice)
-        {
+            playerOne.getChoice();
+            playerTwo.getChoice();
 
+            int d = (5 + playerOne.number - playerTwo.number) % 5;
+            if (playerOne.number > playerTwo.number)
+            {
+                Console.WriteLine($"{playerOne.name} is the winner this time");
+                playerOne.IncrementScore();
+            }
+            else if (playerOne.number < playerTwo.number)
+            {
+                Console.WriteLine($"{playerTwo.name} is the winner this time");
+                playerTwo.IncrementScore();
+            }
+            else
+            {
+                Console.WriteLine("Scores are tied");
+                compareChoices();
+            }
+
+        }
+        public void deterimineWinner()
+        {
+            if (playerOne.roundScore >= 3 && playerTwo.roundScore <= 2)
+            {
+                Console.WriteLine($"{playerOne.name} wins the game!");
+            }
+            else if (playerOne.roundScore >= 2 && playerTwo.roundScore <= 1)
+            {
+                Console.WriteLine($"{playerOne.name} wins the game!");
+
+            }
+            else if (playerTwo.roundScore >= 3 && playerOne.roundScore <= 2)
+            {
+                Console.WriteLine($"{playerTwo.name} wins the game!");
+            }
+            else if (playerTwo.roundScore >= 2 && playerTwo.roundScore <= 1)
+            {
+                Console.WriteLine($"{playerTwo.name} wins the game!");
+            }
+        }
+        public void runGame()
+        {
+            rules.DisplayRules();
+            getNumberOfPlayers();
+            while (playerOne.roundScore <= 3 && playerTwo.roundScore <= 3)
+            {
+                compareChoices();
+                deterimineWinner();
+            }
+            askPlayAgain();
+        }
+        public void askPlayAgain()
+        {
+            Console.WriteLine("Play again? yes or no");
+            string userInput = Console.ReadLine();
+            if (userInput.ToLower() == "yes")
+            {
+                runGame();
+            }
+            else
+            {
+                Console.WriteLine("Thanks for playing!");
+                Environment.Exit(0);
+            }
         }
     }
 }

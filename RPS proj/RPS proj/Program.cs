@@ -10,7 +10,8 @@ namespace RPS_proj
     {
         static void Main(string[] args)
         {
-
+            NewGame game = new NewGame();
+            game.runGame();
         }
     }
 }

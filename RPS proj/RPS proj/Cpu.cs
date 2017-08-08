@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace RPS_proj
 {
-    class Cpu
+    public class Cpu : Player
     {
+        public Cpu()
+        {
+
+        }
+        public override void getChoice()
+        {
+            Random random = new Random();
+            number = random.Next(1, 5);
+        }
+
     }
+
 }
